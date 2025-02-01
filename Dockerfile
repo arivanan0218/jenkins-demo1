@@ -5,10 +5,10 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the packaged JAR file into the container
-COPY target/*.jar jenkins-docker.jar
+COPY target/*.jar devops-integration.jar
 
 # Expose the port that the application will run on
 EXPOSE 8080
 
 # Command to run the JAR file
-ENTRYPOINT ["java", "-jar", "jenkins-docker.jar"]
+ENTRYPOINT ["java", "-jar", "devops-integration.jar"]
