@@ -35,7 +35,7 @@ pipeline {
                     }
 
                     // Optionally log out from Docker Hub after the push
-                    bat 'docker logout'
+//                     bat 'docker logout'
                 }
             }
         }
