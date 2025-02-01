@@ -5,10 +5,10 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Add the packaged JAR file to the container from the host
-ADD target/jenkins-docker.jar /app/app.jar
+ADD target/jenkins-docker.jar jenkins-docker.jar
 
 # Expose the port that the application will run on
 EXPOSE 8080
 
 # Command to run the JAR file
-ENTRYPOINT ["java", "-jar", "app.jar", "/jenkins-docker.jar"]
+ENTRYPOINT ["java", "-jar", "/jenkins-docker.jar"]
