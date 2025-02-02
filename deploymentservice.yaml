@@ -4,10 +4,13 @@
 #  name: springboot-k8s-deployment
 #spec:
 #  replicas: 2
+#  selector:  # Add the selector field to match the template labels
+#    matchLabels:
+#      app: springboot-k8s
 #  template:
 #    metadata:
 #      labels:
-#        app: springboot-k8s
+#        app: springboot-k8s  # Ensure this matches the selector
 #    spec:
 #      containers:
 #        - name: springboot-k8s
@@ -15,7 +18,6 @@
 #          imagePullPolicy: IfNotPresent
 #          ports:
 #            - containerPort: 8080
-#
 #
 #---
 #
@@ -31,6 +33,7 @@
 #      port: 8080
 #      targetPort: 8080
 #  type: NodePort
+
 
 apiVersion: apps/v1
 kind: Deployment
@@ -51,7 +54,7 @@ spec:
           image: arivanan2001/devops-integration
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
+            - containerPort: 9090  # Update the containerPort to 9090
 
 ---
 
@@ -64,6 +67,6 @@ spec:
     app: springboot-k8s
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 9090      # Update the service port to 9090
+      targetPort: 9090 # Update the target port to 9090
   type: NodePort

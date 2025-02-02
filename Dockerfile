@@ -8,7 +8,8 @@ WORKDIR /app
 COPY target/*.jar devops-integration.jar
 
 # Expose the port that the application will run on
-EXPOSE 8080
+#EXPOSE 8080
+EXPOSE 9090
 
 # Command to run the JAR file
 ENTRYPOINT ["java", "-jar", "devops-integration.jar"]
