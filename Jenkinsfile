@@ -35,7 +35,14 @@ pipeline {
                     }
 
                     // Optionally log out from Docker Hub after the push
-//                     bat 'docker logout'
+                    bat 'docker logout'
+                }
+            }
+        }
+        stage ('Deploy to k8s'){
+            steps{
+                script{
+                    kubernetesDeploy (configs: 'deploymentservice.yaml', kubeconfigId: 'k8sconfigpwd')
                 }
             }
         }
